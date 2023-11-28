@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/php-mariadb
+{
+	"name": "Laravel DevContainer",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+	"forwardPorts": [80, 3306],
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"onecentlin.laravel-blade",
+				"onecentlin.laravel5-snippets",
+				"felixfbecker.php-intellisense",
+				"felixfbecker.php-debug"
+			]
+		}
+	},
+
+	"postCreateCommand": "composer install",
+    "remoteUser": "www-data"
+}
