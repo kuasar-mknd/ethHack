@@ -4,7 +4,7 @@
         "./docker-compose.yml"
     ],
     "service": "laravel.test",
-    "workspaceFolder": "/var/www/html",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -36,7 +36,7 @@
         }
     },
     "remoteUser": "sail",
-    "postCreateCommand": "chown -R 1000:1000 /var/www/html && cd /workspaces/ethHack && chown -R 1000:1000 . && [ -f .env.example ] && cp .env.example .env && composer install && php artisan key:generate && php artisan storage:link --force && php artisan migrate --force --seed && npm install",
+    "postCreateCommand": "chown -R 1000:1000 /var/www/html &&  && chown -R 1000:1000 . && [ -f .env.example ] && cp .env.example .env && composer install && php artisan key:generate && php artisan storage:link --force && php artisan migrate --force --seed && npm install",
     "postStartCommand": "cd /workspaces/ethHack && npm run dev",
     "forwardPorts": [
         80,
