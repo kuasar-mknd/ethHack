@@ -9,20 +9,41 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
-	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
-	"forwardPorts": [80, 3306],
-
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"onecentlin.laravel-blade",
 				"onecentlin.laravel5-snippets",
 				"felixfbecker.php-intellisense",
-				"felixfbecker.php-debug"
-			]
+				"felixfbecker.php-debug",
+				"ms-azuretools.vscode-docker",
+		                "esbenp.prettier-vscode",
+		                "GitHub.copilot",
+		                "GitHub.copilot-labs",
+		                "GitHub.copilot-chat",
+		                "dbaeumer.vscode-eslint",
+		                "VisualStudioExptTeam.vscodeintellicode",
+		                "VisualStudioExptTeam.intellicode-api-usage-examples",
+		                "christian-kohler.npm-intellisense",
+		                "bierner.markdown-mermaid",
+		                "github.vscode-github-actions"
+			],
+			"settings": {
+		                "editor.codeActionsOnSave": {
+		                    "source.fixAll.eslint": true
+		                },
+		                "eslint.validate": [
+		                    "javascript",
+		                    "javascriptreact",
+		                    "typescript",
+		                    "typescriptreact"
+		                ]
+		            }
 		}
 	},
 
+	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+	"forwardPorts": [80, 3306],
+
 	"postCreateCommand": "composer install",
-    "remoteUser": "www-data"
 }
