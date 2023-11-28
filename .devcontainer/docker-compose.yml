@@ -89,5 +89,3 @@ volumes:
         driver: local
     sail-redis:
         driver: local
-    sail-minio:
-        driver: local
