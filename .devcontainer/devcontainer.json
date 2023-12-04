@@ -1,9 +1,11 @@
+// https://aka.ms/devcontainer.json
 {
-    "name": "Laravel Development",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
+    "name": "Couleur3",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "laravel.test",
     "workspaceFolder": "/var/www/html",
-    // Configurez les propriétés du conteneur ici.
     "customizations": {
         "vscode": {
             "extensions": [
@@ -19,17 +21,31 @@
                 "editor.formatOnSave": true,
                 "editor.codeActionsOnSave": {
                     "source.fixAll.eslint": true
-                }
+                },
+                "files.autoSave": "onFocusChange"
             }
         }
     },
-    // Ajoutez les ports que vous voulez rendre accessibles.
+    "remoteUser": "sail",
     "forwardPorts": [
         80,
-        8080
+        8025,
+        8080,
+        5173
     ],
-    // Définissez les commandes à exécuter quand le conteneur est créé.
-    "postCreateCommand": "composer install",
-    // Utilisez 'settings' pour définir la configuration *inside* le conteneur.
-    "remoteUser": "www-data"
+    "portsAttributes": {
+        "80": {
+            "label": "Application",
+            "onAutoForward": "notify"
+        },
+        "8025": {
+            "label": "Mailpit"
+        },
+        "8080": {
+            "label": "phpMyAdmin"
+        },
+        "5173": {
+            "label": "Vite (hmr)"
+        }
+    }
 }
